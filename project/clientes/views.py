@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Cliente, Pais
+
 
 def index(request):
     nombre = 'Louis'
@@ -17,3 +19,15 @@ def notas(request):
         'notas': lista_de_notas,
     }
     return render(request, 'clientes/notas.html', context)
+
+
+def pais_list(request):
+    paises = Pais.objects.all()
+    context = {'paises': paises}
+    return render(request, 'clientes/pais_list.html', context)
+
+
+def cliente_list(request):
+    clientes = Cliente.objects.all()
+    context = {'clientes': clientes}
+    return render(request, 'clientes/cliente_list.html', context)
