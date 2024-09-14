@@ -13,7 +13,7 @@ class Cliente(models.Model):
     apellido = models.CharField(max_length=50)
     nacimiento = models.DateField(null=True, blank=True)
     dni = models.CharField(max_length=15, null=True, blank=True)
-    pais_origen = models.ForeignKey(Pais, on_delete=models.CASCADE, null=True, blank=True)
+    pais_origen = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self) -> str:
         return f'{self.apellido}, {self.nombre}'
