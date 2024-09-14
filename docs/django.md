@@ -41,3 +41,66 @@ Registrarla en `config.settings`
         ...
         'core',
     ]
+
+## Crear un modelo
+
+Creamos un modelo en `models`
+
+Realizamos las migraciones:
+
+    python manage.py makemigrations
+
+Aplicamos las migraciones:
+
+    python manage.py migrate
+
+## Crear un superusuario
+
+    python manage.py createsuperuser
+
+## Registrar el modelo en el panel de administración
+
+Modificamos `core.admin`:
+
+    from django.contrib import admin
+    from .models import Modelo
+    admin.site.register(Modelo)
+
+## Crear la plantilla
+
+Creamos una carpeta `templates` en la aplicación. Y dentro de ella, una carpeta con el nombre de la aplicación. Es una buena práctica crear un archivo llamado `index.html` en esa carpeta.
+
+Path absoluto:
+
+    project/core/templates/core/index.html
+
+## Crear una vista
+
+Abrir el módulo `core.views`:
+
+    from django.shortcuts import render
+    def index(request):
+        return render(request, 'core/index.html')
+
+## Crear una URL
+
+Crear el módulo `core.urls`:
+
+    from django.urls import path
+    from . import views
+
+    app_name = 'core'
+
+    urlpatterns = [
+        path('', views.index, name='index'),
+    ]
+
+## Registrar la URL en el proyecto
+
+Abrir el archivo `config.urls` del proyecto:
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', include('core.urls', namespace='core')),
+        path('clientes/', include('clientes.urls', namespace='clientes')),
+    ]
