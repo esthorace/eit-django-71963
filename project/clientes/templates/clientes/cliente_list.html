@@ -1,25 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EducaciónIT</title>
-    </head>
-    <body style="margin: 2%;">
-        <h1 style="text-align: center;">Clientes: Listado de Clientes</h1>
-        <div style="text-align: center;">
-            <ul>
-                {% for cliente in clientes %}
-                    {% if cliente.pais_origen %}
-                        <li>{{ cliente.nombre }} {{ cliente.apellido }} ({{ cliente.pais_origen }})</li>
-                    {% else %}
-                        <li>{{ cliente.nombre }} {{ cliente.apellido }}</li>
-                    {% endif %}
-                {% empty %}
-                    <p>No hay registros</p>
-                {% endfor %}
-            </ul>
-            <a href="{% url 'clientes:index' %}">Volver</a>
-        </div>
-    </body>
-</html>
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Clientes: Listado de Clientes
+{% endblock header %}
+
+{% block main %}
+    <ul>
+        {% for cliente in clientes %}
+            {% if cliente.pais_origen %}
+                <li>{{ cliente.nombre }} {{ cliente.apellido }} ({{ cliente.pais_origen }})</li>
+            {% else %}
+                <li>{{ cliente.nombre }} {{ cliente.apellido }}</li>
+            {% endif %}
+        {% empty %}
+            <p>No hay registros</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'clientes:index' %}">Volver</a>
+{% endblock main %}

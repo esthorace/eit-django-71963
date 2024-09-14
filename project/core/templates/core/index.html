@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EducaciónIT</title>
-</head>
-<body>
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <h1>Home</h1>
-        <h2>Bienvenido a EducaciónIT, el mejor sitio para aprender programación y tecnología.</h2>
-        <a href="{% url 'clientes:index' %}">
-           <button>App Clientes</button>
-        </a>
-        <a href="{% url 'productos:index' %}">
-           <button>App Productos</button>
-        </a>
-    </div>
-</body>
-</html>
+{% extends 'core/base.html' %}
+
+{% block header %}
+    La Caja de Pandora
+{% endblock header %}
+
+{% block main %}
+    <h2>Bienvenido a EducaciónIT, el mejor sitio para aprender programación y tecnología.</h2>
+    <a href="{% url 'clientes:index' %}">
+        <button>App Clientes</button>
+    </a>
+    <a href="{% url 'productos:index' %}">
+        <button>App Productos</button>
+    </a>
+{% endblock main %}

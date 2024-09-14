@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>EducaciónIT</title>
-    </head>
-    <body>
-        <h1 style="text-align: center;">App Clientes</h1>
-        <a href="{% url 'core:index' %}">
-            <button>🏠Home</button>
-        </a>
-        <a href="{% url 'clientes:cliente_list' %}">
-            <button>Clientes</button>
-        </a>
-        <a href="{% url 'clientes:pais_list' %}">
-            <button>Países de origen</button>
-        </a>
-    </body>
-</html>
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Clientes
+{% endblock header %}
+
+{% block main %}
+    <a href="{% url 'core:index' %}">
+        <button>🏠Home</button>
+    </a>
+    <a href="{% url 'clientes:cliente_list' %}">
+        <button>Clientes</button>
+    </a>
+    <a href="{% url 'clientes:pais_list' %}">
+        <button>Países de origen</button>
+    </a>
+{% endblock main %}

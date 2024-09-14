@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EducaciónIT</title>
+    </head>
+    <body style="margin: 2%;">
+        <header>
+            <h1 style="text-align: center; color: blue;">
+
+                {% block header %}
+                {% endblock header %}
+
+            </h1>
+        </header>
+        <main>
+            <div style="display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 5px;
+                        padding-inline: 10%">
+
+                {% block main %}
+                {% endblock main %}
+
+            </div>
+        </main>
+    </body>
+</html>
