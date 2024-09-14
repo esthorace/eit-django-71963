@@ -6,6 +6,9 @@
 
 {% block main %}
     <a href="{% url 'productos:productocategoria_list' %}">
-        <button>Categorías de Productos</button>
+        <button>Listar Categorías de Productos</button>
+    </a>
+    <a href="{% url 'productos:productocategoria_create' %}">
+        <button>Crear Categorías de Productos</button>
     </a>
 {% endblock main %}

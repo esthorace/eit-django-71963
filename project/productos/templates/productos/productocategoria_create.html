@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Productos: Creación de Categoría de Productos
+{% endblock header %}
+
+{% block main %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+       <button type="submit">Guardar</button>
+    </form>
+
+{% endblock main %}
