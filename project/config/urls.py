@@ -20,10 +20,13 @@ from django.urls import include, path
 
 from . import views
 
+# path('saludar/', views.saludar),
+# path('saludar-con-etiqueta', views.saludar_con_etiqueta),
+# path('saludar-con-parametros/<str:nombre>/<str:apellido>', views.saludar_con_parametros),
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('clientes.urls')),
-    # path('saludar/', views.saludar),
-    # path('saludar-con-etiqueta', views.saludar_con_etiqueta),
-    # path('saludar-con-parametros/<str:nombre>/<str:apellido>', views.saludar_con_parametros),
+    path('', include('core.urls', namespace='core')),
+    path('clientes/', include('clientes.urls', namespace='clientes')),
 ]
