@@ -4,6 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>EducaciónIT</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
     </head>
     <body style="margin: 2%;">
         <header>
@@ -14,6 +17,9 @@
 
             </h1>
         </header>
+        <nav>
+            {% include 'core/components/navbar.html' %}
+        </nav>
         <main>
             <div style="display: flex;
                         flex-direction: column;
@@ -24,8 +30,10 @@
 
                 {% block main %}
                 {% endblock main %}
-
             </div>
         </main>
+        <footer>
+            {% include 'core/components/footer.html' %}
+        </footer>
     </body>
 </html>
