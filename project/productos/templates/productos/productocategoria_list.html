@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EducaciónIT</title>
+    </head>
+    <body style="margin: 2%;">
+        <h1 style="text-align: center;">Productos: Listado de Productos de Categorías</h1>
+        <div style="text-align: center;">
+            <ul>
+                {% for object in object_list %}
+                    <li>
+                        {{ object.nombre }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'productos:index' %}">Volver</a>
+        </div>
+    </body>
+</html>

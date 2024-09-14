@@ -29,4 +29,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls', namespace='core')),
     path('clientes/', include('clientes.urls', namespace='clientes')),
+    path('productos/', include('productos.urls', namespace='productos')),
 ]
