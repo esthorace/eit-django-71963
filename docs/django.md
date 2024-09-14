@@ -27,3 +27,17 @@ Abrir en el navegador la ruta y el puerto que nos da Django:
     127.0.0.1:8000
 
 En el navegador, veremos la bienvenida de Django.
+
+## Creación de una aplicación
+
+Creamos una aplicación llamada 'core':
+
+    cd project
+    python manage.py startapp core
+
+Registrarla en `config.settings`
+
+    INSTALLED_APPS = [
+        ...
+        'core',
+    ]
