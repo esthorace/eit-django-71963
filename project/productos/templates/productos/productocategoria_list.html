@@ -20,6 +20,8 @@
                 <a href="{% url 'productos:productocategoria_update' object.id %}">Cambiar</a>
                 <a href="{% url 'productos:productocategoria_delete' object.id %}">Borrar</a>
             </li>
+        {% empty %}
+            <p>No hay datos</p>
         {% endfor %}
     </ul>
 {% endblock main %}
