@@ -5,7 +5,21 @@
 {% endblock header %}
 
 {% block main %}
+    <form method="get">
+        <input type="text" name="q" placeholder="Buscar..." />
+        <button type="submit">Buscar</button>
+    </form>
+    <a href="{% url 'productos:productocategoria_create' %}">
+        <button>Crear registro</button>
+    </a>
     <ul>
-        {% for object in object_list %}<li>{{ object.nombre }}</li>{% endfor %}
+        {% for object in object_list %}
+            <li>
+                {{ object.nombre }}
+                <a href="#">Detalle</a>
+                <a href="#">Cambiar</a>
+                <a href="#">Borrar</a>
+            </li>
+        {% endfor %}
     </ul>
 {% endblock main %}

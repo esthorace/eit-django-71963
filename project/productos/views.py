@@ -9,7 +9,11 @@ def index(request):
 
 
 def productocategoria_list(request):
-    query = ProductoCategoria.objects.all()
+    q = request.GET.get('q')
+    if q:
+        query = ProductoCategoria.objects.filter(nombre__icontains=q)
+    else:
+        query = ProductoCategoria.objects.all()
     context = {'object_list': query}
     return render(request, 'productos/productocategoria_list.html', context)
 

@@ -13,7 +13,9 @@ class ProductoCategoriaForm(forms.ModelForm):
         nombre: str = self.cleaned_data.get('nombre', '')
 
         # Validar que sólo contenga letraas
-        if not nombre.isalpha():
+        if nombre.isalpha() or ' ' in nombre:
+            pass
+        else:
             raise forms.ValidationError('El nombre sólo puede contener letras')
 
         # Validar longitud de nombre
