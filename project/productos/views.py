@@ -21,7 +21,7 @@ def productocategoria_create(request):
     if request.method == 'POST':
         form = ProductoCategoriaForm(request.POST)
         if form.is_valid():
-            # print(form.cleaned_data)
+            # nombre = form.cleaned_data['nombre'].capitalize()
             form.save()
             return redirect('productos:productocategoria_list')
 
