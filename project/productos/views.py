@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .forms import ProductoCategoriaForm
 from .models import ProductoCategoria
@@ -15,6 +15,14 @@ def productocategoria_list(request):
 
 
 def productocategoria_create(request):
-    form = ProductoCategoriaForm()
-    context = {'form': form}
-    return render(request, 'productos/productocategoria_create.html', context)
+    if request.method == 'GET':
+        form = ProductoCategoriaForm()
+
+    if request.method == 'POST':
+        form = ProductoCategoriaForm(request.POST)
+        if form.is_valid():
+            # print(form.cleaned_data)
+            form.save()
+            return redirect('productos:productocategoria_list')
+
+    return render(request, 'productos/productocategoria_create.html', {'form': form})
