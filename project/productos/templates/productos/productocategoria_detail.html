@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Productos: Vista en Detalle de Categoría de Productos
+{% endblock header %}
+
+{% block main %}
+    <ul>
+        <li><strong>Nombre</strong>: {{ object.nombre }}</li>
+        {% if object.descripcion %}
+            <li><strong>Descripción</strong>: {{ object.descripcion }}</li>
+        {% else %}
+            <li><strong>Descripción</strong>: (no hay datos)</li>
+        {% endif %}
+    </ul>
+{% endblock main %}

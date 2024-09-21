@@ -29,4 +29,33 @@ def productocategoria_create(request):
             form.save()
             return redirect('productos:productocategoria_list')
 
-    return render(request, 'productos/productocategoria_create.html', {'form': form})
+    return render(request, 'productos/productocategoria_form.html', {'form': form})
+
+
+def productocategoria_detail(request, pk: int):
+    query = ProductoCategoria.objects.get(id=pk)
+    context = {'object': query}
+    return render(request, 'productos/productocategoria_detail.html', context)
+
+
+def productocategoria_update(request, pk: int):
+    query = ProductoCategoria.objects.get(id=pk)
+    if request.method == 'GET':
+        form = ProductoCategoriaForm(instance=query)
+
+    if request.method == 'POST':
+        form = ProductoCategoriaForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save()
+            return redirect('productos:productocategoria_list')
+
+    return render(request, 'productos/productocategoria_form.html', {'form': form})
+
+
+def productocategoria_delete(request, pk: int):
+    query = ProductoCategoria.objects.get(id=pk)
+    context = {'object': query}
+    if request.method == 'POST':
+        query.delete()
+        return redirect('productos:productocategoria_list')
+    return render(request, 'productos/productocategoria_confirm_delete.html', context)

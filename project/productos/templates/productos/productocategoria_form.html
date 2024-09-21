@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    {% if form.instance.pk %}
+        Productos: Modificación de Categoría de Productos
+    {% else %}
+        Productos: Creación de Categoría de Productos
+    {% endif %}
+{% endblock header %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock main %}

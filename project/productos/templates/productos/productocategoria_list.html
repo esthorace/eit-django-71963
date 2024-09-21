@@ -16,9 +16,9 @@
         {% for object in object_list %}
             <li>
                 {{ object.nombre }}
-                <a href="#">Detalle</a>
-                <a href="#">Cambiar</a>
-                <a href="#">Borrar</a>
+                <a href="{% url 'productos:productocategoria_detail' object.id %}">Detalle</a>
+                <a href="{% url 'productos:productocategoria_update' object.id %}">Cambiar</a>
+                <a href="{% url 'productos:productocategoria_delete' object.id %}">Borrar</a>
             </li>
         {% endfor %}
     </ul>
