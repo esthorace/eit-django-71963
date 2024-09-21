@@ -34,7 +34,7 @@ def productocategoria_list(request):
 class ProductoCategoriaList(ListView):
     model = ProductoCategoria
     # template_name = 'productos/productocategoria_listado.html'
-    # object_name = 'categorias'
+    # context_object_name = 'categorias'
 
     def get_queryset(self):
         q = self.request.GET.get('q')
