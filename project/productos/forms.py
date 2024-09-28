@@ -12,7 +12,7 @@ class ProductoCategoriaForm(forms.ModelForm):
     def clean_nombre(self):
         nombre: str = self.cleaned_data.get('nombre', '')
 
-        # Validar que sólo contenga letraas
+        # Validar que sólo contenga letras
         if nombre.isalpha() or ' ' in nombre:
             pass
         else:
