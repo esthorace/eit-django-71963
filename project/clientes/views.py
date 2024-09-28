@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from .models import Cliente, Pais
@@ -21,6 +22,7 @@ def notas(request):
     return render(request, 'clientes/notas.html', context)
 
 
+@login_required
 def pais_list(request):
     paises = Pais.objects.all()
     context = {'paises': paises}

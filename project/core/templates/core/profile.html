@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Actualizar Perfil de Usuario
+{% endblock header %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+{% endblock main %}
