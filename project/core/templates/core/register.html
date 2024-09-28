@@ -1,14 +1,13 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Login
+    Nueva cuenta
 {% endblock header %}
 
 {% block main %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit">Registrarse</button>
     </form>
-    <p>¿No tiene una cuenta? <a href="{% url 'core:register' %}">Regístrate aquí</a></p>
 {% endblock main %}
