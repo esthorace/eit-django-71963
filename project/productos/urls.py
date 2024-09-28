@@ -48,7 +48,7 @@ urlpatterns = [
     ),
     path(
         'productocategoria/delete/<int:pk>',
-        views.productocategoria_delete,
+        views.ProductoCategoriaDelete.as_view(),
         name='productocategoria_delete',
     ),
 ]
