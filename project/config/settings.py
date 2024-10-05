@@ -131,3 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'core:login'
 # LOGIN_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = 'core:index'
+
+# MEDIA_ROOT sirve para indicar la ruta donde se almacenarán los archivos multimedia
+MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_URL sirve para indicar la URL base desde la cual se servirán los archivos multimedia.
+MEDIA_URL = '/media/'
