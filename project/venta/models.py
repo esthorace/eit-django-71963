@@ -26,9 +26,17 @@ class Venta(models.Model):
         ordering = ['-fecha_venta']
 
     def clean(self):
+        if not self.producto:
+            raise ValidationError('El producto no existe')
+        if self.producto.stock == 0:
+            raise ValidationError('No hay stock disponible para este producto')
         if self.cantidad > self.producto.stock:
-            raise ValidationError('No hay suficiente stock para realizar la venta')
+            raise ValidationError(
+                f'No hay suficiente stock disponible para vender {self.cantidad} unidades. '
+                f'Solo hay {self.producto.stock} unidades disponibles'
+            )
 
     def save(self, *args, **kwargs):
         self.precio_total = self.producto.precio * self.cantidad
+        self.producto.disminuir_stock(self.cantidad)
         super().save(*args, **kwargs)

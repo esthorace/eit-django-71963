@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -47,3 +48,15 @@ class Producto(models.Model):
         ]
         # Indexación
         indexes = [models.Index(fields=['nombre'])]
+
+    def disminuir_stock(self, cantidad):
+        """Cantidad es enviado desde el modelo venta"""
+        if self.stock >= cantidad:
+            self.stock -= cantidad
+            self.save()
+        else:
+            raise ValidationError('No hay suficiente stock')
+
+    def aumentar_stock(self, cantidad):
+        self.stock += cantidad
+        self.save()

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -91,6 +92,8 @@ class ProductoCategoriaDetail(DetailView):
 # *** UPDATE
 # **********************
 
+
+# @permission_required('productos:productos.change_productocategoria')
 # def productocategoria_update(request, pk: int):
 #     query = ProductoCategoria.objects.get(id=pk)
 #     if request.method == 'GET':
