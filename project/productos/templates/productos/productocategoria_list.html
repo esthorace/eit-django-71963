@@ -1,27 +1,41 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    Productos: Listado de Productos de Categorías
+    <h1 class="mt-4">Productos: Listado de Productos de Categorías</h1>
 {% endblock header %}
 
 {% block main %}
-    <form method="get">
-        <input type="text" name="q" placeholder="Buscar..." />
-        <button type="submit">Buscar</button>
-    </form>
-    <a href="{% url 'productos:productocategoria_create' %}">
-        <button>Crear registro</button>
-    </a>
-    <ul>
-        {% for object in object_list %}
-            <li>
-                {{ object.nombre }}
-                <a href="{% url 'productos:productocategoria_detail' object.id %}">Detalle</a>
-                <a href="{% url 'productos:productocategoria_update' object.id %}">Cambiar</a>
-                <a href="{% url 'productos:productocategoria_delete' object.id %}">Borrar</a>
-            </li>
-        {% empty %}
-            <p>No hay datos</p>
-        {% endfor %}
-    </ul>
+    <div class="container mt-4">
+        <form method="get" class="mb-3">
+            <div class="input-group">
+                <input type="text" class="form-control" name="q" placeholder="Buscar..." />
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+        <a href="{% url 'productos:productocategoria_create' %}" class="btn btn-success mb-3">Crear registro</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                    <tr>
+                        <td>{{ object.nombre }}</td>
+                        <td>
+                            <a href="{% url 'productos:productocategoria_detail' object.id %}" class="btn btn-info btn-sm">Detalle</a>
+                            <a href="{% url 'productos:productocategoria_update' object.id %}" class="btn btn-warning btn-sm">Cambiar</a>
+                            <a href="{% url 'productos:productocategoria_delete' object.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2">No hay datos</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock main %}
